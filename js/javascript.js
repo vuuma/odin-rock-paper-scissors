@@ -68,4 +68,20 @@ const rock = document.querySelector("#rock");
 const scissors = document.querySelector("#scissors");
 const paper = document.querySelector("#paper");
 const div = document.createElement("div");
+document.body.appendChild(div);
+
+
+rock.addEventListener('click', () => {
+    div.textContent = playRound("rock", getComputerChoice());
+})
+
+scissors.addEventListener('click', () => {
+    div.textContent = playRound("scissors", getComputerChoice());
+})
+
+paper.addEventListener('click', () => {
+    div.textContent = playRound("paper", getComputerChoice());
+})
+
+
 
