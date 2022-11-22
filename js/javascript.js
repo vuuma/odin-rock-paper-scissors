@@ -48,10 +48,11 @@ function playRound(playerSelection, computerSelection){
     else{
         gameResult = "Invalid input. Please enter \"Rock\", \"Paper\", or \"Scissors\"";
     }
-
+    //console.log(gameResult);
     return gameResult;
 }
 
+/*
 function game(){
     for(let i = 0; i < 5; i++){
         let playerSelection = prompt("Enter \"Rock\", \"Paper\", or \"Scissors\"");
@@ -59,5 +60,12 @@ function game(){
         alert(result);
     }
 }
+*/
 
-game();
+//game();
+
+const rock = document.querySelector("#rock");
+const scissors = document.querySelector("#scissors");
+const paper = document.querySelector("#paper");
+const div = document.createElement("div");
+
