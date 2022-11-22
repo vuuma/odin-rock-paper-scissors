@@ -52,27 +52,46 @@ function playRound(playerSelection, computerSelection){
     return gameResult;
 }
 
-/*
-function game(){
-    for(let i = 0; i < 5; i++){
-        let playerSelection = prompt("Enter \"Rock\", \"Paper\", or \"Scissors\"");
-        let result = playRound(playerSelection, getComputerChoice());
-        alert(result);
+function scoreTracker(){
+    if(div.textContent.includes("Win")){
+        scoreWin += 1;
     }
-}
-*/
 
-//game();
+    if(div.textContent.includes("Lose")){
+        scoreLose += 1;      
+    }
+
+    scoreCount.textContent = `Wins: ${scoreWin}, Lose: ${scoreLose}`;
+
+    if(scoreWin == 5){
+        winner.textContent = "Player wins";
+    }
+
+    if(scoreLose == 5){
+        winner.textContent = "Player loses";
+    }
+
+}
+
+
+let scoreLose = 0;
+let scoreWin = 0;
 
 const rock = document.querySelector("#rock");
 const scissors = document.querySelector("#scissors");
 const paper = document.querySelector("#paper");
 const div = document.createElement("div");
+const scoreCount = document.createElement("div");
+const winner = document.createElement("div");
+
 document.body.appendChild(div);
+document.body.appendChild(scoreCount);
+document.body.appendChild(winner);
 
 
 rock.addEventListener('click', () => {
     div.textContent = playRound("rock", getComputerChoice());
+    scoreTracker();
 })
 
 scissors.addEventListener('click', () => {
@@ -82,6 +101,3 @@ scissors.addEventListener('click', () => {
 paper.addEventListener('click', () => {
     div.textContent = playRound("paper", getComputerChoice());
 })
-
-
-
